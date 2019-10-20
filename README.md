@@ -61,37 +61,92 @@ Output: `Hllo, thr`
 1. **Given an array of type [Int], return the largest element**
 
 Input: `[1,5,2,4,1,4]`
+```
+var input = [1,5,2,4,1,4]
+var largestNum = 0
+
+for num in 1...input.count {
+    if input[0] > largestNum {
+        largestNum = input[num]
+    }
+}
+print(largestNum)
+```
 
 Output: `5`
 
 2. **Given an array of type [Int], return the smallest element**
 
 Input: `[1,5,2,4,1,4]`
+```
+var input = [1,5,2,4,1,4]
+var smallesNum = 0
+
+
+
+```
 
 Output: `1`
 
 3. **Given an array of type [Int], return its sum**
 
 Input: `[1,5,2,4,1,4]`
+```
+var input = [1,5,2,4,1,4]
+var sumOfInput = 0
+
+for num in input {
+    sumOfInput += num
+}
+print(sumOfInput)
+
+```
 
 Output: `17`
 
 4. **Given an array of type [Double], return its average**
 
 Input: `[3,4.5,7.5,2,1]`
+```
+var Input = [3, 4.5, 7.5, 2, 1]
+var avg = 0.0
+var sum = 0.0
 
+for (num) in Input {
+    sum += num
+    avg = (sum) / Double(Input.count)
+}
+print(avg)
+```
 Output: `3.6`
 
 5. **Given an array of type [Double] and a Double, return the sum of all numbers in the array greater than a given number**
 
 Input: `[3,4.5,7.5,2,1], 3`
+```
+var sum = 0.0 
+for (num) in Input {
+    if num > 3 {
+    sum += num
+}
+}
 
+print(sum)
+
+```
 Output: `12`
 
 
 6. **Given an array of type [Double], return the product of all the elements**
 
 Input: `[3,4.5,7.5,2,1]`
+```
+var product = 1.0
+for num in Input {
+    product *= Double(num)
+}
+print(product)
+```
 
 Output: `202.5`
 
@@ -106,7 +161,16 @@ Output: `3`
 1. **Given an array of type [String?] return an array of [String] removing all nil values**
 
 Input: `[nil, "We", "come", nil, "in", "peace"]`
+```
+var validString = [String]()
 
+for word in input {
+    if word == nil { continue }
+    validString.append(word ?? "a")
+}
+print(validString)
+
+```
 Output: `["We", "come", "in", "peace"]`
 
 2. **Given an array of type [String?]? return an array of [String] removing all nil values**
@@ -118,6 +182,18 @@ Output: `[]`
 3. **Given an array of type [Int?] return the sum of all non-nil values.  Use guard statements in your solution.**
 
 Input: `[4, nil, 9, 5, nil]`
+```
+var input = [4, nil, 9, 5, nil]
+var validNum = [Int]()
+
+for thing in input {
+    guard let thing = thing else {
+        continue
+    }
+    validNum.append(thing)
+}
+print(validNum)
+```
 
 Output: `18`
 
@@ -130,6 +206,20 @@ Output: `0`
 5. **Given an array of type [Int?] and an optional Int, return the sum of all values not equal to the given number.  If the given number is nil, return the sum of all non-nil values.**
 
 Input: `[1, 1, nil, 3, 5, nil, 1, nil, 3, 5, nil, 5, nil, 3], 1`
+```
+var sum = 0
+
+for thing in input {
+    guard let thing = thing else {
+        continue
+    }
+    if thing > 1 {
+    sum += thing
+}
+}
+
+print(sum)
+```
 
 Output: `24`
 
