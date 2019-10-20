@@ -6,13 +6,31 @@
 1. **Given a String, return a String with each letter uppercased**
 
 Input: `Hello, there`
-
+```
+var str = "Hello, there"
+print(str.uppercased())
+```
 Output: `HELLO, THERE`
 
 2. **Given a String, return a String alternating between uppercase and lowercase letters**
 
-
 Input: `Hello, there`
+
+```
+var str = "Hello, there"
+var newStr = Array(str)
+var ansStr = ""
+
+for (index, char) in newStr.enumerated() {
+    if index % 2 == 0 {
+       ansStr = ansStr + String(char.uppercased())
+    } else {
+        ansStr = ansStr + String(char)
+    }
+}
+
+print(ansStr)
+```
 
 Output: `HeLlO, tHeRe`
 
@@ -20,6 +38,19 @@ Output: `HeLlO, tHeRe`
 3. **Given a String, return a String with all occurrences of a given letter removed**
 
 Input: `Hello, there`
+```
+var str = "Hello, there"
+var newStr = Array(str)
+var ansStr = ""
+for (index, char) in newStr.enumerated() {
+    if char != "e" {
+       ansStr += String(char)
+    }
+}
+
+print(ansStr)
+
+```
 
 Output: `Hllo, thr`
 
