@@ -229,18 +229,69 @@ Output: `24`
 1. **Given an array of type [String], return a copy of the array with all duplicate values removed**
 
 Input: `["apple", "apple", "banana", "banana", "banana", "cake", "cake"]`
+```
+var setInput = Set<String>(input)
+print(setInput)
+```
 
 Output: `["apple", "banana", "cake"]`
 
 2. **Given a String, find the most frequently occurring letter**
 
 Input: `Never trust a computer you can't throw out a window ~ Steve Wozniak`
+```
+var freqChar: Character = "?"
+var freqDict: [Character : Int] = [:]
+var trimmedStr = ""
+
+for word in input {
+    if word.isPunctuation || word.isWhitespace { continue }
+    trimmedStr += String(word)
+}
+
+for char in trimmedStr {
+    if let count = freqDict[char] {
+        freqDict[char] = count + 1
+    } else {
+        freqDict[char] = 1
+    }
+}
+
+var largestKeyValue = 0
+for (key, value) in freqDict {
+    if value > largestKeyValue {
+        largestKeyValue = value
+        freqChar = key
+    }
+}
+
+print(freqChar)
+```
 
 Output: `t`
 
 3. **Given an array of type [Int], return a copy of the array that contains only elements that appear at least twice**
 
 Input: `[1,1,2,3,3,3,4,5,6,6,7]`
+```
+var ansArr = [Int]()
+var twiceDict: [Int : Int] = [:]
+
+for num in input {
+    if let count = twiceDict[num] {
+        twiceDict[num] = count + 1
+    } else {
+        twiceDict[num] = 1
+    }
+}
+for (key, value) in twiceDict {
+    if value >= 2 {
+        ansArr.append(key)
+    }
+}
+print(ansArr)
+```
+
 
 Output: `[1,3,6]`
 
