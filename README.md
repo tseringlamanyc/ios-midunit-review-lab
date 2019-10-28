@@ -83,7 +83,6 @@ var input = [1,5,2,4,1,4]
 var smallesNum = 0
 
 
-
 ```
 
 Output: `1`
@@ -176,6 +175,10 @@ Output: `["We", "come", "in", "peace"]`
 2. **Given an array of type [String?]? return an array of [String] removing all nil values**
 
 Input: `nil`
+
+```
+
+```
 
 Output: `[]`
 
@@ -307,19 +310,30 @@ Output `o`
 1. **Given an array of type [String], return an array that contains the Strings sorted alphabetically with capital letters first (Swift will do that part automatically)**
 
 Input: `["Never", "trust", "a", "computer", "you", "can't", "throw", "out", "a", "window"]`
-
+```
+let ansInput = input.sorted {$0 < $1}
+print(ansInput)
+```
 Output: `["Never", "a", "a", "can\'t", "computer", "out", "throw", "trust", "window", "you"]`
 
 2. **Given an array of type [String], return an array that contains the Strings sorted by length**
 
 Input: `["Never", "trust", "a", "computer", "you", "can't", "throw", "out", "a", "window"]`
+```
+let ansInput = input.sorted { $0.count < $1.count }
+print(ansInput)
+```
 
 Output: `["a", "a", "you", "out", "Never", "trust", "can\'t", "throw", "window", "computer"]`
 
 3. **Given an array of type [String], return an array containing all Strings at least 4 characters long**
 
 Input: `["Never", "trust", "a", "computer", "you", "can't", "throw", "out", "a", "window"]`
+```
+let ansInput = input.filter { $0.count >= 4 }
+print(ansInput)
 
+```
 Output: `["Never", "trust", "computer", "can\'t", "throw", "window"]`
 
 4. **Given an array of type [String], return a String containing all of the Strings from the array combined and separated by spaces.  Do this first without using the `joined(separator:) method`**
@@ -338,7 +352,27 @@ Output: `Never trust a computer you can't throw out a window`
 enum NumberType {
     case even
     case odd
+    
+    func evenOrOdd (_ input: [Int], _ num: NumberType) -> [Int] {
+        var ansArr = [Int]()
+        switch num {
+        case.even:
+            for number in input {
+                if number % 2 == 0 {
+                    ansArr.append(number)
+                }
+            }
+        case.odd:
+            for number in input {
+            if number % 2 != 0 {
+                ansArr.append(number)
+            }
+        }
+    }
+return ansArr
 }
+}
+
 ```
 
 Input: `[1,2,3,4,5,6], NumberType.odd`
@@ -351,6 +385,15 @@ Output: `[1,3,5]`
 enum StringType {
     case lowercase
     case uppercase
+    
+    func upperOrLower (_ sentence: String, _ word: StringType) -> String {
+        switch word {
+        case.lowercase:
+            return sentence.lowercased()
+        case.uppercase:
+            return sentence.uppercased()
+        }
+    }
 }
 ```
 
